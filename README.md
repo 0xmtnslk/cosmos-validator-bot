@@ -5,13 +5,6 @@ mkdir cosmos-validator-bot
 cd cosmos-validator-bot
 ```
 
-# 2. Gerekli dosyaları oluştur
-```
-mkdir tenderduty
-touch config.json networks.json bot.py setup.sh
-```
-
-
 # 4. setup.sh'ı çalıştırılabilir yap
 ```
 chmod +x setup.sh

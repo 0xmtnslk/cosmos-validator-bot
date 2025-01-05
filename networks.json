@@ -1,0 +1,194 @@
+{
+    "mainnet": {
+        "nibiru": {
+            "name": "Nibiru Chain",
+            "chain_id": "cataclysm-1",
+            "logo_png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/nibiru/images/nibiru.png",
+            "rpc_endpoints": [
+                "https://rpc.nibiru.fi",
+                "https://nibiru.rpc.kjnodes.com",
+                "https://rpc.nibiru.nodestake.org",
+                "https://rpc.lavenderfive.com:443/nibiru",
+                "https://rpc.nibiru.silentvalidator.com",
+                "https://nibiru.rpc.liveraven.net",
+                "https://nibiru-rpc.cogwheel.zone",
+                "https://nibiru.rpc.nodeshub.online:443",
+                "https://nibiru.rpc.m.stavr.tech:443",
+                "https://nibiru-rpc.noders.services",
+                "https://nibiru-mainnet.rpc.stakevillage.net:443",
+                "https://nibiru-rpc.publicnode.com:443",
+                "https://rpc.nibiru.roomit.xyz",
+                "https://nibiru_mainnet_rpc.chain.whenmoonwhenlambo.money"
+            ]
+        },
+        "zetachain": {
+            "name": "Zeta Chain",
+            "chain_id": "zetachain_7000-1",
+            "logo_png": "https://raw.githubusercontent.com/CoinHuntersTR/Logo/main/zetachain-icon.png",
+            "rpc_endpoints": [
+                "https://zetachain.blockpi.network/rpc/v1/public",
+                "https://zetachain-mainnet-archive.allthatnode.com:26657",
+                "https://rpc.lavenderfive.com:443/zetachain",
+                "https://rpc.zetachain.nodestake.org",
+                "https://zetachain-rpc.noders.services",
+                "https://zetachain.rpc.nodeshub.online:443",
+                "https://zeta-chain.drpc.org",
+                "https://zeta.rpc.m.stavr.tech:443",
+                "https://zetachain-mainnet-rpc.cosmonautstakes.com"
+            ]
+        },
+        "dymension": {
+            "name": "Dymension",
+            "chain_id": "dymension_1100-1",
+            "logo_png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/dymension/images/dymension-logo.png",
+            "rpc_endpoints": [
+                "https://dym-m-rpc.agoranodes.com",
+                "https://rpc.dymension.nodestake.org",
+                "http://dymension.mainnet.rpc.noders.team:42657",
+                "https://dymension-mainnet-rpc.autostake.com:443",
+                "https://rpc.lavenderfive.com:443/dymension",
+                "https://dymension-rpc.kynraze.com",
+                "https://m-dymension.rpc.utsa.tech",
+                "https://rpc-dymension.nodeist.net",
+                "https://dym.rpc.m.stavr.tech:443",
+                "https://dym.rpc-archive.m.stavr.tech:443",
+                "https://rpc.dymension.hexnodes.co",
+                "https://dymension.rpc.kjnodes.com:443",
+                "https://dymension-rpc.stakeandrelax.net",
+                "https://dymension-rpc.takeshi.team",
+                "https://dymension-rpc.publicnode.com:443",
+                "https://rpc.dymension.silentvalidator.com:443",
+                "https://rpc-dymension.whispernode.com:443",
+                "https://community.nuxian-node.ch:6797/dymension/trpc",
+                "https://dymension-rpc.enigma-validator.com",
+                "https://dymension-rpc.ibs.team",
+                "https://dymension.nodejumper.io:443",
+                "https://rpc-dymension.hoodrun.io:443",
+                "https://dymension.0xwave.com:2053",
+                "https://archive.rpc.dym.cumulo.com.es:443",
+                "https://rpc.dymension.posthuman.digital",
+                "https://rpc.dymension.node75.org",
+                "https://rpc.dymension.bronbro.io:443",
+                "https://dymension-rpc.noders.services",
+                "https://rpc.mainnet.dymension.aviaone.com",
+                "https://rpc.archive.dymension.mainnet.dteam.tech:443",
+                "https://dymension.drpc.org"
+            ]
+        },
+        "blockx": {
+            "name": "Blockx",
+            "chain_id": "blockx_19191-1",
+            "logo_png": "https://pbs.twimg.com/profile_images/1571914336288776193/HmxJDHvF_400x400.jpg",
+            "rpc_endpoints": [
+                "https://rpc-blockx.nodeist.net",
+                "https://blockx_mainnet_rpc.chain.whenmoonwhenlambo.money",
+                "https://blockx-mainnet-rpc.itrocket.net"
+            ]
+        },
+        "mantrachain": {
+            "name": "Mantra Chain",
+            "chain_id": "mantra-1",
+            "logo_png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/mantrachain/images/OM-Prim-Col.png",
+            "rpc_endpoints": [
+                "https://rpc.mantrachain.io",
+                "https://rpc-mantra.r93axnodes.cloud:443",
+                "https://mantrachain-mainnet-rpc.autostake.com:443",
+                "https://mantra-rpc.publicnode.com:443",
+                "https://mantra-mainnet-rpc.itrocket.net:443",
+                "https://mantra.rpc.m.stavr.tech"
+            ]
+        },
+        "kopi": {
+            "name": "Kopi Money",
+            "chain_id": "luwak-1",
+            "logo_png": "https://pbs.twimg.com/profile_images/1761492586580082688/V-TFs01l_400x400.jpg",
+            "rpc_endpoints": [
+                "https://rpc.kopi.money",
+                "https://rpc.kopi.chaintools.tech",
+                "https://kopi-rpc.cosmoscan.com",
+                "https://kopi-rpc.stakerhouse.com",
+                "https://kopi-rpc.moonbridge.org",
+                "https://rpc-kopid.vinjan.xyz/",
+                "https://kopi-mainnet-rpc.bonynode.online",
+                "https://kopi-rpc.bluestake.net:443",
+                "https://rpc-kopi.sychonix.com",
+                "https://kopi-rpc.node9x.com/",
+                "https://kopi.rpc.nodeshub.online/",
+                "https://kopi-rpc.polkachu.com/",
+                "https://rpc.kopi.nodestake.org"
+            ]
+        },
+        "lava": {
+            "name": "Lava Network",
+            "chain_id": "lava-mainnet-1",
+            "logo_png": "https://raw.githubusercontent.com/cosmos/chain-registry/master/lava/images/lava.png",
+            "rpc_endpoints": [
+                "https://lava.tendermintrpc.lava.build",
+                "https://lava-rpc.w3coins.io:443",
+                "https://lava-rpc.finteh.org:26657",
+                "https://lava-rpc.y2.finance:443",
+                "https://lava-rpc.ibs.team:443",
+                "https://rpc.lava-mainnet-1.lava.aviaone.com:443",
+                "https://rpc-lava.r93axnodes.cloud:443",
+                "https://lava-rpc.publicnode.com:443",
+                "https://lava.rpc.m.stavr.tech:443",
+                "https://lava.rpc-archive.m.stavr.tech:443",
+                "https://lava-rpc.stake-town.com:443",
+                "https://lava.rpc.liveraven.net",
+                "https://lava-mainnet-rpc.autostake.com:443",
+                "https://lava-rpc.bluestake.net:443",
+                "https://lava.rpc.stakevillage.net:443"
+            ]
+        }
+    },
+    "testnet": {
+        "airchains": {
+            "name": "Airchains",
+            "chain_id": "junction",
+            "logo_png": "https://pbs.twimg.com/profile_images/1871581245085450240/_IQYv51O_400x400.jpg",
+            "rpc_endpoints": [
+                "https://airchains-testnet-rpc.itrocket.net",
+                "https://airchains-testnet-rpc.stakerhouse.com",
+                "https://rpc.nodejumper.io:443/airchainstestnet",
+                "https://rpc.airchains.aknodes.net"
+            ]
+        },
+        "pell": {
+            "name": "Pell Network",
+            "chain_id": "ignite_186-1",
+            "logo_png": "https://pbs.twimg.com/profile_images/1811609717522989056/_jr_bub2_400x400.png",
+            "rpc_endpoints": [
+                "http://34.87.47.193:26657",
+                "https://pell-testnet-rpc.itrocket.net",
+                "http://34.87.39.12:26657",
+                "http://37.252.186.230:26657",
+                "http://54.36.61.121:26657",
+                "http://135.181.236.254:57657"
+            ]
+        },
+        "warden": {
+            "name": "Warden",
+            "chain_id": "chiado_10010-1",
+            "logo_png": "https://pbs.twimg.com/profile_images/1827100976152555520/N-CVNgTL_400x400.jpg",
+            "rpc_endpoints": [
+                "https://warden.rpc.t.anode.team",
+                "https://warden-testnet-rpc.itrocket.net",
+                "https://warden-testnet-rpc.stake-town.com",
+                "https://warden-testnet.rpc.kjnodes.com"
+            ]
+        },
+        "empeiria": {
+            "name": "Empeiria",
+            "chain_id": "empe-testnet-2",
+            "logo_png": "https://pbs.twimg.com/profile_images/1575715887591612419/D2Aw6uNh_400x400.jpg",
+            "rpc_endpoints": [
+                "https://empeiria-testnet-rpc.cryptonode.id",
+                "https://empeiria-testnet-rpc.itrocket.net",
+                "https://empeiria-testnet-rpc.stakerhouse.com",
+                "https://empeiria.rpc.t.anode.team",
+                "http://195.26.242.62:28657",
+                "http://188.40.85.207:14057"
+            ]
+        }
+    }
+}

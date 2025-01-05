@@ -1,4 +1,5 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from bot.validator_utils import validate_validator_address, sanitize_input, restart_tenderduty
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes
 import json
 import yaml

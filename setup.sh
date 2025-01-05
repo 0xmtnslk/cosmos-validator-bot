@@ -14,6 +14,8 @@ adduser --ingroup tenderduty --system --home /var/lib/tenderduty tenderduty
 # Install tenderduty
 sudo -u tenderduty bash << EOF
 cd /var/lib/tenderduty
+export GOPATH=/var/lib/tenderduty/go
+export PATH=\$PATH:\$GOPATH/bin
 git clone https://github.com/blockpane/tenderduty
 cd tenderduty
 go install

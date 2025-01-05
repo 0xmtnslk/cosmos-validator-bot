@@ -2,7 +2,7 @@ import re
 import subprocess
 
 def validate_validator_address(address: str) -> bool:
-    validator_address_regex = r'^(valoper)[0-9a-z]{39}$'
+    validator_address_regex = r'^(dymvaloper|valoper)[0-9a-z]{39}$'
     return bool(re.match(validator_address_regex, address, re.IGNORECASE))
 
 def sanitize_input(input_str: str) -> str:

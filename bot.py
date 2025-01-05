@@ -7,8 +7,10 @@ from datetime import datetime
 
 class ConfigManager:
     def __init__(self):
-        self.load_configs()
+        # İlk önce path'i tanımla
         self.tenderduty_config_path = 'tenderduty/config.yml'
+        # Sonra configs'i yükle
+        self.load_configs()
 
     def load_configs(self):
         # Load networks
@@ -62,21 +64,25 @@ class ConfigManager:
     def add_validator(self, user_id, network, validator_address):
         user_id = str(user_id)
 
+        # Kullanıcı kaydı
         if user_id not in self.users:
             self.users[user_id] = {
                 "validators": {},
                 "created_at": datetime.now().isoformat()
             }
 
+        # Validator bilgisini kullanıcıya kaydet
         self.users[user_id]["validators"][network] = {
             "address": validator_address,
             "added_at": datetime.now().isoformat()
         }
         self.save_users()
 
+        # Tenderduty config'i güncelle
         network_type = 'mainnet' if network in self.networks['mainnet'] else 'testnet'
         network_data = self.networks[network_type][network]
 
+        # Chain config'i oluştur veya güncelle
         if network not in self.tenderduty_config['chains']:
             self.tenderduty_config['chains'][network] = {
                 'chain_id': network_data['chain_id'],
@@ -100,6 +106,7 @@ class ConfigManager:
                 ]
             }
 
+        # Validator'ü chain config'e ekle
         self.tenderduty_config['chains'][network]['validators'][user_id] = {
             'address': validator_address,
             'telegram_chat_id': user_id
@@ -158,6 +165,7 @@ class TelegramBot:
             network = context.user_data['selected_network']
             user_id = update.effective_user.id
 
+            # Validator'ü ekle
             self.config_manager.add_validator(user_id, network, validator_address)
 
             await update.message.reply_text(

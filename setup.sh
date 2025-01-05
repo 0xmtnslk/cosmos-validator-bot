@@ -42,3 +42,7 @@ EOF
 # Set permissions
 chown -R tenderduty:tenderduty /root/cosmos-validator-bot
 chmod -R 755 /root/cosmos-validator-bot
+chmod 644 /root/cosmos-validator-bot/tenderduty/config.yml
+chmod 644 /root/cosmos-validator-bot/config.json
+chmod 644 /root/cosmos-validator-bot/networks.json
+chmod 644 /root/cosmos-validator-bot/users.json

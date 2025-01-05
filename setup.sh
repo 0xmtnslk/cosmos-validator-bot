@@ -1,33 +1,26 @@
 #!/bin/bash
 
-# Sistem güncellemesi
-sudo apt update && sudo apt upgrade -y
+# System updates
+apt update && apt upgrade -y
+apt install python3 python3-pip golang-go -y
 
-# Python ve pip kurulumu
-sudo apt install python3 python3-pip -y
-
-# Python bağımlılıklarını yükle
+# Install Python dependencies
 pip3 install python-telegram-bot pyyaml
 
-# Tenderduty kurulumu
-sudo apt install golang-go -y
+# Create tenderduty user
+addgroup --system tenderduty 
+adduser --ingroup tenderduty --system --home /var/lib/tenderduty tenderduty
 
-# Tenderduty kullanıcısı oluştur
-sudo addgroup --system tenderduty 
-sudo adduser --ingroup tenderduty --system --home /var/lib/tenderduty tenderduty
-
-# Tenderduty'yi kur
+# Install tenderduty
 sudo -u tenderduty bash << EOF
 cd /var/lib/tenderduty
-echo 'export PATH=\$PATH:/var/lib/tenderduty/go/bin' >> .bashrc
-source .bashrc
 git clone https://github.com/blockpane/tenderduty
 cd tenderduty
 go install
 EOF
 
-# Tenderduty servis dosyası
-sudo tee /etc/systemd/system/tenderduty.service << EOF
+# Create service file
+cat > /etc/systemd/system/tenderduty.service << EOF
 [Unit]
 Description=Tenderduty
 After=network.target
@@ -44,8 +37,6 @@ RestartSec=5
 WantedBy=multi-user.target
 EOF
 
-# Servis ayarları
-sudo systemctl daemon-reload
-sudo systemctl enable tenderduty
-
-echo "Kurulum tamamlandı!"
+# Set permissions
+chown -R tenderduty:tenderduty /root/cosmos-validator-bot
+chmod -R 755 /root/cosmos-validator-bot

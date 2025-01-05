@@ -9,16 +9,39 @@ from datetime import datetime
 class ConfigManager:
     def __init__(self):
         self.tenderduty_config_path = 'tenderduty/config.yml'
-        
-        # Create tenderduty directory if not exists
+
+        # Load basic configs first
+        self.load_basic_configs()
+
+        # Create tenderduty directory
         os.makedirs('tenderduty', exist_ok=True)
-        
-        # Load configs first
-        self.load_configs()
-        
-        # Initialize config.yml if not exists
-        if not os.path.exists(self.tenderduty_config_path):
-            initial_config = {
+
+        # Load or create tenderduty config
+        self.load_or_create_tenderduty_config()
+
+    def load_basic_configs(self):
+        # Load networks
+        with open('networks.json', 'r') as f:
+            self.networks = json.load(f)
+
+        # Load bot config
+        with open('config.json', 'r') as f:
+            self.config = json.load(f)
+
+        # Load or create users
+        if os.path.exists('users.json'):
+            with open('users.json', 'r') as f:
+                self.users = json.load(f)
+        else:
+            self.users = {}
+            self.save_users()
+
+    def load_or_create_tenderduty_config(self):
+        if os.path.exists(self.tenderduty_config_path):
+            with open(self.tenderduty_config_path, 'r') as f:
+                self.tenderduty_config = yaml.safe_load(f)
+        else:
+            self.tenderduty_config = {
                 'enable_dashboard': True,
                 'listen_port': 8888,
                 'hide_logs': True,
@@ -31,12 +54,7 @@ class ConfigManager:
                 },
                 'chains': {}
             }
-            with open(self.tenderduty_config_path, 'w') as f:
-                yaml.dump(initial_config, f)
-        
-        # Load existing config
-        with open(self.tenderduty_config_path, 'r') as f:
-            self.tenderduty_config = yaml.safe_load(f)
+            self.save_tenderduty_config()
 
     def load_configs(self):
         # Load networks

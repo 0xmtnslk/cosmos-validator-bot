@@ -106,56 +106,16 @@ class ConfigManager:
             yaml.dump(self.tenderduty_config, f, default_flow_style=False)
 
     def add_validator(self, user_id, network, validator_address):
-        user_id = str(user_id)
-
-        # Kullanıcı kaydı
-        if user_id not in self.users:
-            self.users[user_id] = {
-                "validators": {},
-                "created_at": datetime.now().isoformat()
-            }
-
-        # Validator bilgisini kullanıcıya kaydet
-        self.users[user_id]["validators"][network] = {
-            "address": validator_address,
-            "added_at": datetime.now().isoformat()
-        }
-        self.save_users()
-
-        # Tenderduty config'i güncelle
-        network_type = 'mainnet' if network in self.networks['mainnet'] else 'testnet'
-        network_data = self.networks[network_type][network]
-
-        # Chain config'i oluştur veya güncelle
+        if not self.tenderduty_config:
+            self.load_or_create_tenderduty_config()
+            
         if network not in self.tenderduty_config['chains']:
-            self.tenderduty_config['chains'][network] = {
-                'chain_id': network_data['chain_id'],
-                'validators': {},
-                'public_fallback': True,
-                'alerts': {
-                    'stalled_enabled': True,
-                    'stalled_minutes': 10,
-                    'consecutive_enabled': True,
-                    'consecutive_missed': 1,
-                    'percentage_enabled': True,
-                    'percentage_missed': 10,
-                    'alert_if_inactive': True,
-                    'alert_if_no_servers': True
-                },
-                'nodes': [
-                    {
-                        'url': url,
-                        'alert_if_down': False
-                    } for url in network_data['rpc_endpoints']
-                ]
-            }
-
-        # Validator'ü chain config'e ekle
-        self.tenderduty_config['chains'][network]['validators'][user_id] = {
+            self.tenderduty_config['chains'][network] = self.get_network_config(network)
+        
+        self.tenderduty_config['chains'][network]['validators'][str(user_id)] = {
             'address': validator_address,
-            'telegram_chat_id': user_id
+            'telegram_chat_id': str(user_id)
         }
-
         self.save_tenderduty_config()
 
 class TelegramBot:

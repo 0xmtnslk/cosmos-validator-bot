@@ -39,10 +39,21 @@ RestartSec=5
 WantedBy=multi-user.target
 EOF
 
+# Create tenderduty user and set permissions
+useradd -r -s /bin/false tenderduty
+
+# Create required directories
+mkdir -p /root/cosmos-validator-bot/tenderduty
+mkdir -p /var/lib/tenderduty
+
 # Set permissions
+chown -R tenderduty:tenderduty /var/lib/tenderduty
+chmod -R 755 /var/lib/tenderduty
 chown -R tenderduty:tenderduty /root/cosmos-validator-bot
 chmod -R 755 /root/cosmos-validator-bot
 chmod 644 /root/cosmos-validator-bot/tenderduty/config.yml
-chmod 644 /root/cosmos-validator-bot/config.json
-chmod 644 /root/cosmos-validator-bot/networks.json
-chmod 644 /root/cosmos-validator-bot/users.json
+
+# Give tenderduty user access to required directories
+chmod 755 /root
+chmod 755 /root/cosmos-validator-bot
+chmod 755 /root/cosmos-validator-bot/tenderduty

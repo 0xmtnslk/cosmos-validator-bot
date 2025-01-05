@@ -20,19 +20,40 @@ chmod +x setup.sh
 ```
 ./setup.sh
 ```
-# 6. config.json'a Telegram bot token'ını ekle
-# (config.json dosyasını düzenleyip token'ı girin)
+# 6. İzinleri düzenleyelim.
 
-# 7. networks.json'ı düzenle
-# (İstediğiniz ağları ekleyin/çıkarın)
-
+### Tüm dizin yapısının izinlerini düzelt
+```
+sudo chown -R tenderduty:tenderduty /root/cosmos-validator-bot
+sudo chmod -R 755 /root/cosmos-validator-bot
+```
+### Config dosyasının izinlerini özel olarak ayarla
+```
+sudo chmod 644 /root/cosmos-validator-bot/tenderduty/config.yml
+```
+```
+sudo chmod 755 /root
+```
 # 8. Botu başlat
 ```
 python3 bot.py
 ```
 
 # 9. Tenderduty servisini başlat
-```
-sudo systemctl start tenderduty
-```
 
+#### Systemd'yi yeniden yükle
+```
+sudo systemctl daemon-reload
+```
+#### Servisi yeniden başlat
+```
+sudo systemctl restart tenderduty
+```
+#### Durumu kontrol et
+```
+sudo systemctl status tenderduty
+```
+##### Logları izle
+```
+journalctl -u tenderduty -f
+```

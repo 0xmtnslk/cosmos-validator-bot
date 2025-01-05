@@ -31,17 +31,14 @@ sudo tee /etc/systemd/system/tenderduty.service << EOF
 [Unit]
 Description=Tenderduty
 After=network.target
-ConditionPathExists=/var/lib/tenderduty/go/bin/tenderduty
 
 [Service]
 Type=simple
+User=tenderduty
+WorkingDirectory=/root/cosmos-validator-bot
+ExecStart=/var/lib/tenderduty/go/bin/tenderduty -f /root/cosmos-validator-bot/tenderduty/config.yml
 Restart=always
 RestartSec=5
-TimeoutSec=180
-User=tenderduty
-WorkingDirectory=/var/lib/tenderduty
-ExecStart=/var/lib/tenderduty/go/bin/tenderduty --config $(pwd)/tenderduty/config.yml
-LimitNOFILE=infinity
 
 [Install]
 WantedBy=multi-user.target

@@ -8,10 +8,30 @@ from datetime import datetime
 
 class ConfigManager:
     def __init__(self):
-        # İlk önce path'i tanımla
-        self.tenderduty_config_path = 'tenderduty/config.yml'
-        # Sonra configs'i yükle
-        self.load_configs()
+        # Create tenderduty directory if not exists
+        os.makedirs('tenderduty', exist_ok=True)
+        
+        # Initialize config.yml if not exists
+        if not os.path.exists('tenderduty/config.yml'):
+            initial_config = {
+                'enable_dashboard': True,
+                'listen_port': 8888,
+                'hide_logs': True,
+                'node_down_alert_minutes': 3,
+                'prometheus_enabled': True,
+                'prometheus_listen_port': 28686,
+                'telegram': {
+                    'enabled': True,
+                    'api_key': self.get_telegram_token()
+                },
+                'chains': {}
+            }
+            with open('tenderduty/config.yml', 'w') as f:
+                yaml.dump(initial_config, f)
+        
+        # Load existing config
+        with open('tenderduty/config.yml', 'r') as f:
+            self.tenderduty_config = yaml.safe_load(f)
 
     def load_configs(self):
         # Load networks
